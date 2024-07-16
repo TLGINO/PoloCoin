@@ -1,39 +1,32 @@
-# <h1 align="center"> Forge Template </h1>
+# PoloCoin
 
-**Template repository for getting started quickly with Foundry projects**
+Idea:
 
-![Github Actions](https://github.com/foundry-rs/forge-template/workflows/CI/badge.svg)
+Create an ERC-20 token named after my dog, Polo.
 
-## Getting Started
+Create an NFT of this image, and make it so that it can only be bought using POLOCOIN.
 
-Click "Use this template" on [GitHub](https://github.com/foundry-rs/forge-template) to create a new repository with this repo as the initial state.
 
-Or, if your repo already exists, run:
+![Polo](./img/polo.png)
+
+## Running
 ```sh
 forge init
 forge build
 forge test
 ```
 
-## Writing your first test
-
-All you need is to `import forge-std/Test.sol` and then inherit it from your test contract. Forge-std's Test contract comes with a pre-instatiated [cheatcodes environment](https://book.getfoundry.sh/cheatcodes/), the `vm`. It also has support for [ds-test](https://book.getfoundry.sh/reference/ds-test.html)-style logs and assertions. Finally, it supports Hardhat's [console.log](https://github.com/brockelmore/forge-std/blob/master/src/console.sol). The logging functionalities require `-vvvv`.
-
-```solidity
-pragma solidity 0.8.10;
-
-import "forge-std/Test.sol";
-
-contract ContractTest is Test {
-    function testExample() public {
-        vm.roll(100);
-        console.log(1);
-        emit log("hi");
-        assertTrue(true);
-    }
-}
+## Deploying contract
+```sh
+forge create --rpc-url http://localhost:8545 --private-key <private_key> src/PoloCoin.sol:PoloCoin
 ```
 
-## Development
+## Using cast
+```sh
+cast call <contract_addr> "totalSupply()(uint256)"
+```
 
-This project uses [Foundry](https://getfoundry.sh). See the [book](https://book.getfoundry.sh/getting-started/installation.html) for instructions on how to install and use Foundry.
+## Testing specific file
+```sh
+forge test --match-contract <contract_name> -vv
+```
