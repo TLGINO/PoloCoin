@@ -30,3 +30,12 @@ cast call <contract_addr> "totalSupply()(uint256)"
 ```sh
 forge test --match-contract <contract_name> -vv
 ```
+
+## TODO
+
+Look into:
+- bridging to starknet?
+- this command
+```
+forge clone <contract_addr> <dir_name>
+```

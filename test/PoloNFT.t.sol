@@ -34,6 +34,9 @@ contract TestPoloCoin is Test, Owners {
         assertEq(allowance, polo_nft_price, "Allowance not set correctly");
 
         vm.prank(address(owner1));
-        nft.mint(dummy_addr, 'https://google.com');
+        nft.mint(dummy_addr, 'https://web3.lettry.xyz');
+
+        assertEq(nft.tokenURI(0), "https://web3.lettry.xyz");
+
     }
 }
